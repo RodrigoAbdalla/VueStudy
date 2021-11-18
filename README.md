@@ -1,5 +1,10 @@
-# testcp109
 # studying VUE
+
+Este projeto foi criado com o intuito de estudar a ferramenta Vue e Vuetify
+Resultado final:
+![Alt text](C:\Users\Rodri\OneDrive\Facul\6o Semestre\VueStudy\testVue\src\finalResult.png)
+
+
 
 ## Project setup
 ```
