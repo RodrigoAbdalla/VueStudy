@@ -1,7 +1,7 @@
 <template>
   <v-app>
 
-    <v-system-bar
+            <v-system-bar
       app
       window
       fixed = false
@@ -33,71 +33,7 @@
       <v-btn @click="toggleTheme" text rounded>Toggle theme</v-btn>
     </v-app-bar>
 
-     <v-content
-      app
-     >
-  
-      <v-text-field
-      v-model="newTaskTitle"
-        class = "pa-3"
-        outlined
-        label="Add Task"
-        append-icon="mdi-plus"
-        hide-details
-        clearable
-        @click:append="createTasks"
-        @keyup.enter="createTasks"
-      >
-
-      </v-text-field>
-
-      <v-list
-      class="pt-0"
-      flat
-      >
-        <div
-          v-for="task in tasks"
-          :key="task.id"
-        >
-          <v-list-item
-          @click="doneTask(task.id)"
-          :class="{ 'green lighten-3' : task.done}"
-          >
-              <template v-slot:default>
-                <v-list-item-action>
-                  <v-checkbox :input-value="task.done"></v-checkbox>
-                </v-list-item-action>
-
-                <v-list-item-content
-                  :class="{ 'text-decoration-line-through':task.done}"
-                >
-                  <v-list-item-title>
-                    {{task.title}}
-                  </v-list-item-title>
-                </v-list-item-content>
-                <v-list-item-action>
-                <v-btn 
-                  @click.stop="deleteTask(task.id)"
-                  icon
-                >
-                  <v-icon color="primary lighten-1">mdi-delete</v-icon>
-                </v-btn>
-              </v-list-item-action>
-              </template>
-              
-              
-
-
-            </v-list-item>
-            <v-divider></v-divider>
-          </div>
-
-
-      </v-list>
-      
-
-        
-     </v-content>
+     
 
     <v-navigation-drawer
       v-model="drawer"
@@ -113,20 +49,16 @@
           v-model="group"
           active-class="deep-purple--text text--accent-4"
         >
+
           <v-list-item>
-            <v-list-item-title>Foo</v-list-item-title>
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-title>About</v-list-item-title>
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-title>Bar</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-title>Fizz</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-title>Buzz</v-list-item-title>
+            <v-list-item-title>Creditos</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -190,12 +122,11 @@
     </v-btn>
   </v-bottom-navigation>
 
-<v-main>
-      
-    </v-main>
-    
+        <router-view></router-view>
   </v-app>
 </template>
+
+
 
 <script>
 
@@ -222,40 +153,11 @@ export default {
       ],
     drawer: false,
     group: null,
-    value: 1,
-    newTaskTitle: '',
-    tasks: [
-      {
-        id: 1,
-        title: 'Drink Water',
-        done: false
-      },
-      {
-        id: 2,
-        title: 'Sleep 8 hours',
-        done: false
-      }
-    ]
+    value: 1
   }),
   methods: {
     toggleTheme(){
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark
-    },
-    doneTask(id){
-      let task = this.tasks.filter(task => task.id === id)[0]
-      task.done = !task.done
-    },
-    deleteTask(id){
-      this.tasks = this.tasks.filter(task => task.id !== id)
-    },
-    createTasks(){
-      let newTask = {
-        id: Date.now(),
-        title: this.newTaskTitle,
-        done: false
-      }
-      this.tasks.push(newTask)
-      this.newTaskTitle = ''
     }
   },
    watch: {
