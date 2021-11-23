@@ -23,9 +23,9 @@
                 
                 <v-list-item-action>
                 <v-btn 
-                  @click.stop="undoneTask(task.id)"
+                  @click.stop="completeTask(task.id)"
                 >
-                UNDONE
+                COMPLETE
                 </v-btn>
               </v-list-item-action>
               </template>
@@ -53,12 +53,12 @@
 export default {
     computed: {
         doneTasks(){
-            return this.$store.state.tasks.filter(task => task.done === true)
+            return this.$store.state.tasks.filter(task => task.done === false)
         }
          
     },
   methods: {
-    undoneTask(id){
+    completeTask(id){
         let task = this.$store.state.tasks.filter(task => task.id === id)[0]
         task.done = !task.done
   }}
