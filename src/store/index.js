@@ -19,6 +19,32 @@ export default new Vuex.Store({
     ],
     deletedTasks: [
 
+    ],
+    views: [
+      {
+        id: 1,
+        title: 'Home',
+        route: '/',
+        image: 'mdi-home'
+      },
+      {
+        id: 2,
+        title: 'Deleted Tasks',
+        route: '/deletedtasks',
+        image: 'mdi-delete'
+      },
+      {
+        id: 3,
+        title: 'Done Tasks',
+        route: '/donetasks',
+        image: 'mdi-check'
+      },
+      {
+        id: 4,
+        title: 'Pending tasks',
+        route: '/pendingtasks',
+        image: 'mdi-account-clock'
+      }
     ]
 
   },

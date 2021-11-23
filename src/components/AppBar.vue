@@ -16,35 +16,26 @@
     </v-app-bar>
     
     <v-navigation-drawer
-      v-model="drawer"
+      v-model="drawer" clipped
       absolute
-      bottom
       temporary
     >
-      <v-list
-        nav
-        dense
-      >
-        <v-list-item-group
-          v-model="group"
-          active-class="deep-purple--text text--accent-4"
-        >
-          
-          <v-list-item>
-            <v-list-item-title>Home</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-title>Deleted tasks</v-list-item-title>
-          </v-list-item>
+    
+        
+          <v-list-item
+            v-for="view in this.$store.state.views"
+          :key="view.id" 
+          link @click="$router.push({ path: view.route })"
+          >
+              <v-list-item-action>
+                <v-icon>{{view.image}}    </v-icon>
+            </v-list-item-action>
+              <v-list-item-content>
+                  
+                  <v-list-item-title > {{view.title}}</v-list-item-title>
+                </v-list-item-content>
+             </v-list-item>
 
-          <v-list-item>
-            <v-list-item-title>Done tasks</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-title>Pending tasks</v-list-item-title>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
     </v-navigation-drawer>
 </div>
         

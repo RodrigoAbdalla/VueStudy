@@ -46,7 +46,9 @@
                 <v-btn 
                   @click.stop="deleteTask(task.id)"
                   icon
+                  tile
                 >
+                
                   <v-icon color="primary lighten-1">mdi-delete</v-icon>
                 </v-btn>
               </v-list-item-action>
@@ -82,9 +84,7 @@ export default {
       task.done = !task.done
     },
     deleteTask(id){
-      console.log("1")
       this.$store.state.deletedTasks.push(this.$store.state.tasks.filter(task => task.id === id))
-      console.log("2")
       this.$store.state.tasks = this.$store.state.tasks.filter(task => task.id !== id)
     },
     createTasks(){
