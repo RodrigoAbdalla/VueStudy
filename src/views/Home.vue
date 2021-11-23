@@ -23,7 +23,7 @@
       flat
       >
         <div
-          v-for="task in tasks"
+          v-for="task in this.$store.state.tasks"
           :key="task.id"
         >
           <v-list-item
@@ -73,31 +73,19 @@
 
 export default {
   name: 'App',
-
-  
-
   data: () => ({
     newTaskTitle: '',
-    tasks: [
-      {
-        id: 1,
-        title: 'Drink Water',
-        done: false
-      },
-      {
-        id: 2,
-        title: 'Sleep 8 hours',
-        done: false
-      }
-    ]
   }),
   methods: {
     doneTask(id){
-      let task = this.tasks.filter(task => task.id === id)[0]
+      let task = this.$store.state.tasks.filter(task => task.id === id)[0]
       task.done = !task.done
     },
     deleteTask(id){
-      this.tasks = this.tasks.filter(task => task.id !== id)
+      console.log("1")
+      this.$store.state.deletedTasks.push(this.$store.state.tasks.filter(task => task.id === id))
+      console.log("2")
+      this.$store.state.tasks = this.$store.state.tasks.filter(task => task.id !== id)
     },
     createTasks(){
       let newTask = {
@@ -105,7 +93,7 @@ export default {
         title: this.newTaskTitle,
         done: false
       }
-      this.tasks.push(newTask)
+      this.$store.state.tasks.push(newTask)
       this.newTaskTitle = ''
     }
   }
