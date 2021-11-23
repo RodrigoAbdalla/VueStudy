@@ -1,8 +1,9 @@
-# studying VUE
+# Studying VUE
 
-Este projeto foi criado com o intuito de estudar a ferramenta Vue e Vuetify
-Resultado final:
-![Alt text](C:\Users\Rodri\OneDrive\Facul\6o Semestre\VueStudy\testVue\src\finalResult.png)
+## Este projeto foi criado com o intuito de estudar a ferramenta Vue e Vuetify
+## Resultado final:
+
+![Final Result](https://github.com/RodrigoAbdalla/VueStudy/blob/master/src/finalResult.png)
 
 
 
