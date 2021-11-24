@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import DeletedTasks from '../views/DeletedTasks.vue'
 import DoneTasks from '../views/DoneTasks.vue'
 import PendingTasks from '../views/PendingTasks.vue'
+import Credits from '../views/Credits.vue'
 
 Vue.use(VueRouter)
 
@@ -30,6 +31,11 @@ export default new VueRouter({
       path: '/pendingtasks',
       name: 'PendingTasks',
       component: PendingTasks
+    },
+    {
+      path: '/credits',
+      name: 'Credits',
+      component: Credits
     }
   ]
 })

@@ -88,13 +88,15 @@ export default {
       this.$store.state.tasks = this.$store.state.tasks.filter(task => task.id !== id)
     },
     createTasks(){
-      let newTask = {
-        id: Date.now(),
-        title: this.newTaskTitle,
-        done: false
-      }
-      this.$store.state.tasks.push(newTask)
-      this.newTaskTitle = ''
+      if(this.newTaskTitle!=""){
+        let newTask = {
+          id: Date.now(),
+          title: this.newTaskTitle,
+          done: false
+        }
+        this.$store.state.tasks.push(newTask)
+        this.newTaskTitle = ''
+        }
     }
   }
 };

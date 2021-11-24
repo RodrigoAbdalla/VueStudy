@@ -12,7 +12,9 @@
       <v-icon>mdi-code-tags</v-icon>
     </v-btn>
 
-    <v-btn>
+    <v-btn
+      link @click="$router.push({ path: '/credits' })"
+    >
       <span>Credits</span>
 
       <v-icon>mdi-account</v-icon>
