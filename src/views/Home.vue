@@ -20,7 +20,6 @@
 
       <v-list
       class="pt-0"
-      flat
       >
         <div
           v-for="task in this.$store.state.tasks"

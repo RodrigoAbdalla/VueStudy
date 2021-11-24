@@ -7,9 +7,26 @@
       >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <div>TO DO LIST</div>
-      <v-spacer></v-spacer> 
+      
 
-      <v-btn @click="toggleTheme" text rounded>Toggle theme</v-btn>
+        <v-card-text
+        align="center"
+        justify="center">
+        <v-btn
+          v-for="view in this.$store.state.views"
+          :key="view.id" 
+          class="mx-4 white--text"
+          icon
+          link @click="$router.push({ path: view.route })"
+        >
+          <v-icon size="24px">
+            {{ view.image }}
+          </v-icon>
+        </v-btn>
+      </v-card-text>
+
+
+        <v-btn @click="toggleTheme" text rounded>Toggle theme</v-btn>
     </v-app-bar>
     
     <v-navigation-drawer

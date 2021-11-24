@@ -15,6 +15,46 @@ export default new Vuex.Store({
         id: 2,
         title: 'Sleep 8 hours',
         done: false
+      },
+      {
+        id: 3,
+        title: 'Go to gym',
+        done: false
+      },
+      {
+        id: 4,
+        title: 'Play soccer',
+        done: false
+      },
+      {
+        id: 5,
+        title: 'Wake up 6 am',
+        done: false
+      },
+      {
+        id: 6,
+        title: 'Wash the dish',
+        done: false
+      },
+      {
+        id: 7,
+        title: 'Get 10 in math',
+        done: false
+      },
+      {
+        id: 8,
+        title: 'Create a video on Tiktok',
+        done: false
+      },
+      {
+        id: 9,
+        title: 'Run 10km',
+        done: false
+      },
+      {
+        id: 10,
+        title: 'Clean the bedroom',
+        done: false
       }
     ],
     deletedTasks: [
