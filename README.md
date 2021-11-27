@@ -1,8 +1,5 @@
-# VUE study
-
 ## This project was created in order to study Vue and Vuetify.
 
-## Proposta:
 ### This application was developed to make your day more productive and organized. Create your tasks and daily goals and see how productive can be your day. 
 ### On the home page, you can create your tasks, finish and delete them. There is also a tab with filtered tasks, where you can find only completed, deleted or only pending ones.
 
