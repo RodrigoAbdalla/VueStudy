@@ -3,6 +3,8 @@
 ### This application was developed to make your day more productive and organized. Create your tasks and daily goals and see how productive can be your day. 
 ### On the home page, you can create your tasks, finish and delete them. There is also a tab with filtered tasks, where you can find only completed, deleted or only pending ones.
 
+#### Note: We used the Open Library API to collect two books from my list on the website and put them into two example tasks. We did this to study VUEX's interaction with APIs
+
 ## Final result (Home page):
 
 ![Final Result](https://github.com/RodrigoAbdalla/VueStudy/blob/master/src/finalResult.png)
