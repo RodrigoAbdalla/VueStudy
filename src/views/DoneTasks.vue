@@ -52,12 +52,14 @@
 
 export default {
     computed: {
+        // Colect my complete tasks in store
         doneTasks(){
-            return this.$store.state.tasks.filter(task => task.done === true)
+            return this.$store.getters.doneTasks
         }
          
     },
   methods: {
+    // Change the "done" attribute
     undoneTask(id){
         let task = this.$store.state.tasks.filter(task => task.id === id)[0]
         task.done = !task.done

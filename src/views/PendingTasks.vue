@@ -8,7 +8,7 @@
       flat
       >
         <div
-          v-for="task in doneTasks"
+          v-for="task in pendingTasks"
           :key="task.id"
         >
           <v-list-item>
@@ -52,12 +52,14 @@
 
 export default {
     computed: {
-        doneTasks(){
-            return this.$store.state.tasks.filter(task => task.done === false)
+      // Colect my pending tasks in store
+        pendingTasks(){
+            return this.$store.getters.pendingTasks
         }
          
     },
   methods: {
+    // Change the "done" attribute
     completeTask(id){
         let task = this.$store.state.tasks.filter(task => task.id === id)[0]
         task.done = !task.done

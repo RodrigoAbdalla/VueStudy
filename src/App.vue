@@ -1,6 +1,8 @@
 <template>
+
   <v-app>
 
+    
     <SystemBar></SystemBar>
     <AppBar></AppBar>
     <Footer></Footer>
@@ -18,7 +20,6 @@ import AppBar from "@/components/AppBar"
 import Footer from "@/components/Footer"
 import BottomNavigation from "@/components/BottomNavigation"
 import SystemBar from "@/components/SystemBar"
-
 export default {
   name: 'App',
   components:{

@@ -8,22 +8,22 @@
       flat
       >
         <div
-          v-for="task in this.$store.state.deletedTasks"
-          :key="task[0].id"
+          v-for="task in deletedTasks"
+          :key="task.id"
         >
           <v-list-item>
               <template v-slot:default>
 
                 <v-list-item-content>
                   <v-list-item-title>
-                    {{task[0].title}}
+                    {{task.title}}
                   </v-list-item-title>
                 </v-list-item-content>
                 <v-spacer></v-spacer>
                 
                 <v-list-item-action>
                 <v-btn 
-                  @click.stop="restoreTask(task[0].id)"
+                  @click.stop="restoreTask(task.id)"
                 >
                 RESTORE
                 </v-btn>
@@ -51,10 +51,20 @@
 <script>
 
 export default {
+  computed: {
+    // Colect my deleted tasks in store
+      deletedTasks(){
+          console.log(this.$store.getters.deletedTasks)
+          return this.$store.getters.deletedTasks
+      }
+         
+    },
   methods: {
+    // Change the "deleted" attribute
     restoreTask(id){
-        this.$store.state.tasks.push(this.$store.state.deletedTasks.filter(task => task[0].id === id)[0][0])
-        this.$store.state.deletedTasks = this.$store.state.deletedTasks.filter(task => task[0].id !== id)
+      console.log("okk")
+        let task = this.$store.state.tasks.filter(task => task.id === id)[0]
+        task.deleted = false
   }}
 };
 </script>

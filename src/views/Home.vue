@@ -1,9 +1,9 @@
 <template>
   <v-app>
+      
       <v-content
       app
      >
-  
       <v-text-field
       v-model="newTaskTitle"
         class = "pa-3"
@@ -22,7 +22,7 @@
       class="pt-0"
       >
         <div
-          v-for="task in this.$store.state.tasks"
+          v-for="task in myTasks"
           :key="task.id"
         >
           <v-list-item
@@ -71,32 +71,49 @@
 
 
 <script>
-
 export default {
   name: 'App',
   data: () => ({
-    newTaskTitle: '',
+    // Add task field
+    newTaskTitle: '', 
   }),
+  computed:{
+    myTasks(){
+      // Colect my tasks in store
+      return this.$store.getters.myTasks
+    }
+  },
   methods: {
+    // Complete the task
     doneTask(id){
       let task = this.$store.state.tasks.filter(task => task.id === id)[0]
       task.done = !task.done
     },
+
+    // Delete the task
     deleteTask(id){
-      this.$store.state.deletedTasks.push(this.$store.state.tasks.filter(task => task.id === id))
-      this.$store.state.tasks = this.$store.state.tasks.filter(task => task.id !== id)
+      let task = this.$store.state.tasks.filter(task => task.id === id)[0]
+      task.deleted = true
     },
+
+    // Create the new task
     createTasks(){
       if(this.newTaskTitle!=""){
         let newTask = {
           id: Date.now(),
           title: this.newTaskTitle,
-          done: false
+          done: false,
+          deleted: false
         }
         this.$store.state.tasks.push(newTask)
         this.newTaskTitle = ''
         }
     }
+  },
+
+  // Will colect 2 books from book API
+  async created(){
+    this.$store.dispatch("fetchBooks")
   }
 };
 </script>
